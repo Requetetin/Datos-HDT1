@@ -10,9 +10,9 @@ public class Controlador{
 
 	}
 	public void accion(int valor){
-		switch(valor){ 													//Cada caso depende de lo que el usuario ingreso
+		switch(valor){//Cada caso depende de lo que el usuario ingreso
 			case 1:
-			if(radio.estado()){											//Usa la funcion estado, para recibir si esta encendido o apagado (true significa que esta encendido)
+			if(radio.estado()==true ){											//Usa la funcion estado, para recibir si esta encendido o apagado (true significa que esta encendido)
 				System.out.println("\n \nEl radio ya esta encendido\n \n");		//Si es true, no hace nada
 			}
 			else{
@@ -31,6 +31,7 @@ public class Controlador{
 
 			case 3:
 			radio.avanzar();											//Usa avanzar, y luego muestra la estacion actual
+			System.out.println("Estas en la estacion: ");
 			System.out.println(radio.estacionActual());
 			 break;
 
@@ -43,14 +44,14 @@ public class Controlador{
 
 
 			case 5:
-			System.out.println("\n \nQue numero de estacion quiere usar?");	//Se le pide el numero de estacion que quiere y luego se manda a la funcion seleccionarEmisora
+			System.out.println("\n \nQue boton de su radio quiere usar?");	//Se le pide el numero de estacion que quiere y luego se manda a la funcion seleccionarEmisora
 			int num2 = scan.nextInt();
 			radio.seleccionarEmisora(num2);
 			 break;
 
 
 			case 6:
-			if(radio.estado()){											//Usa la funcion estado, para saber si esta encendido
+			if(radio.estado()== true){											//Usa la funcion estado, para saber si esta encendido
 				System.out.println("\n \nSe ha apagado el radio\n \n");			//Si es true, usa onOff para cambiar el estado
 				radio.onOff();
 			}
