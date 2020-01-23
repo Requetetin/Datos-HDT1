@@ -24,7 +24,6 @@ public class Controlador{
 			else{
 				System.out.println("\n \nEl radio se ha encendido\n ");			//Si es false, utiliza onOff para cambiar el estado a encendido
 				radio.onOff();
-				System.out.println("Estas en la estacion: 87.9");
 			}
 			 break;
 
