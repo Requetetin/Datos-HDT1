@@ -9,7 +9,7 @@ import java.util.*;
 
 public class Main{
 	public static void main(String[] args){
-		Controlador control = new Controlador();
+		Controlador control = new Controlador(); //En el controlador se llama a la clase de radio
 		Scanner scan = new Scanner(System.in);
 		int ingreso = 0;
 		control.iniciarListas();
