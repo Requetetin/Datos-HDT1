@@ -10,6 +10,7 @@ public class Controlador{
 
 	}
 	public void accion(int valor){
+		if(radio.estado() || valor == 1){
 		switch(valor){//Cada caso depende de lo que el usuario ingreso
 			
 		
@@ -20,6 +21,7 @@ public class Controlador{
 			else{
 				System.out.println("\n \nEl radio se ha encendido\n ");			//Si es false, utiliza onOff para cambiar el estado a encendido
 				radio.onOff();
+				System.out.println("Estas en la estacion: 87.9");
 			}
 			 break;
 
@@ -27,7 +29,6 @@ public class Controlador{
 			case 2:
 			System.out.println("\n \nUsted ha cambiado de frecuencia\n \n");		//Se muestra mensaje, luego se usa cambiarFrecuencia y se muestra la estacion actual
 			radio.cambiarFrecuencia();
-			System.out.println(radio.estacionActual());
 			 break;
 
 
@@ -62,5 +63,6 @@ public class Controlador{
 			}
 			 break;
 		}
+	}
 	}
 }

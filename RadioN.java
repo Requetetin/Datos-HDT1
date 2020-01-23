@@ -11,12 +11,15 @@ Y cualquier cosa me hablas
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.text.DecimalFormat;
 public class RadioN implements miRadio{
 	
+	DecimalFormat df = new DecimalFormat("#00.#");
 	
 	
 	private boolean estado = false ;
-	private String estacionActual = "no estas en ninguna estacion, dale a avanzar";
+	private double estacionActual = 87.9;
+	private String estacionActualp;
 	private String frecuenciaActual = "FM" ;
 	private int guardadas;
 	private int estacionFM = -1;
@@ -31,7 +34,7 @@ public class RadioN implements miRadio{
 	
 	public String estacionActual(){
 
-		return estacionActual;
+		return estacionActualp;
 	}
 	
 	
@@ -52,11 +55,15 @@ public class RadioN implements miRadio{
 	public void cambiarFrecuencia(){
 		if (frecuenciaActual == "FM") {
 			frecuenciaActual = "AM";
+			estacionActual = 530;
+			estacionActualp =df.format(estacionActual);
 			System.out.println("Ahora estas en AM");
 			
 		}
 		else {
 			frecuenciaActual = "FM";
+			estacionActual = 87.9;
+			estacionActualp = df.format(estacionActual);
 			System.out.println("Ahora estas en FM");
 			
 		}
@@ -66,13 +73,23 @@ public class RadioN implements miRadio{
 	}
 	public void avanzar(){
 		if (frecuenciaActual.equals("FM")) {
-			estacionFM = estacionFM +1;
-			estacionActual= arrFM[estacionFM];
+			//estacionFM = estacionFM +1;
+			estacionActual= estacionActual +0.2;
+			estacionActualp = df.format(estacionActual);
+			if(estacionActual > 108){
+				estacionActual = 87.9;
+				estacionActualp = df.format(estacionActual);
+			}
 		}
 		
 		if (frecuenciaActual.equals("AM")) {
-			estacionAM = estacionAM +1;
-			estacionActual= arrAM[estacionAM ];
+			//estacionAM = estacionAM +1;
+			estacionActual= estacionActual + 10;
+			estacionActualp = df.format(estacionActual);
+			if(estacionActual > 1615){
+				estacionActual = 530;
+				estacionActualp = df.format(estacionActual);
+			}
 		}
 		
 		
@@ -87,28 +104,20 @@ public class RadioN implements miRadio{
 		else if (guardadas == 12) {
 			System.out.println("Solo puedes guardas hasta 12.");
 		}
-		if(estacionActual.equals("FM")) {
-			if (estacionFM == -1) {
-			System.out.println("Tienes que estar en una estacion para guardar");
-			}
+		
 			
-		}
-		if(estacionActual.equals("AM")) {
-			if (estacionAM == -1) {
-			System.out.println("Tienes que estar en una estacion para guardar");
-			}
-			
-		}
+		
 		
 		
 		
 		if (frecuenciaActual.equals("FM")){
-			guardadasFM.set(boton-1, estacionActual);
+			guardadasFM.set(boton-1, " "+estacionActual);
 		}
 		
 		else if (frecuenciaActual.equals("AM")) {
-			guardadasAM.set(boton-1, estacionActual);
+			guardadasAM.set(boton-1, " "+estacionActual);
 		}
+	}
 		
 		
 		
@@ -119,7 +128,7 @@ public class RadioN implements miRadio{
 		
 		
 
-	}
+	
 	public void seleccionarEmisora(int boton){
 		if (frecuenciaActual.equals("FM")) {
 			System.out.println("En este boton esta guardada la siguiente emisora: ");
