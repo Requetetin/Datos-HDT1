@@ -16,9 +16,11 @@ public class RadioN implements miRadio{
 	
 	
 	private boolean estado = false ;
-	private String estacionActual;
+	private String estacionActual = "no estas en ninguna estacion, dale a avanzar";
 	private String frecuenciaActual = "FM" ;
 	private int guardadas;
+	private int estacionFM = -1;
+	private int estacionAM = -1;
 	
 	String[] arrFM = {"87.9", "88.3", "88.7","88.9", "89.3", "89.5", "89.7", "89.9", "90.1", "90,3", "99.9", "102.5"};
 	String[] arrAM= {"530", "540", "560", "600", "610", "630", "640", "720", "730", "750", "790", "810" };
@@ -50,12 +52,12 @@ public class RadioN implements miRadio{
 	public void cambiarFrecuencia(){
 		if (frecuenciaActual == "FM") {
 			frecuenciaActual = "AM";
-			System.out.println("Estas en AM");
+			System.out.println("Ahora estas en AM");
 			
 		}
 		else {
 			frecuenciaActual = "FM";
-			System.out.println("Estas en FM");
+			System.out.println("Ahora estas en FM");
 			
 		}
 		
@@ -63,6 +65,16 @@ public class RadioN implements miRadio{
 
 	}
 	public void avanzar(){
+		if (frecuenciaActual.equals("FM")) {
+			estacionFM = estacionFM +1;
+			estacionActual= arrFM[estacionFM];
+		}
+		
+		if (frecuenciaActual.equals("AM")) {
+			estacionAM = estacionAM +1;
+			estacionActual= arrAM[estacionAM ];
+		}
+		
 		
 		
 		}
@@ -75,6 +87,19 @@ public class RadioN implements miRadio{
 		else if (guardadas == 12) {
 			System.out.println("Solo puedes guardas hasta 12.");
 		}
+		if(estacionActual.equals("FM")) {
+			if (estacionFM == -1) {
+			System.out.println("Tienes que estar en una estacion para guardar");
+			}
+			
+		}
+		if(estacionActual.equals("AM")) {
+			if (estacionAM == -1) {
+			System.out.println("Tienes que estar en una estacion para guardar");
+			}
+			
+		}
+		
 		
 		
 		if (frecuenciaActual.equals("FM")){

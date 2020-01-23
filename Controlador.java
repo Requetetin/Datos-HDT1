@@ -11,12 +11,14 @@ public class Controlador{
 	}
 	public void accion(int valor){
 		switch(valor){//Cada caso depende de lo que el usuario ingreso
+			
+		
 			case 1:
 			if(radio.estado()==true ){											//Usa la funcion estado, para recibir si esta encendido o apagado (true significa que esta encendido)
 				System.out.println("\n \nEl radio ya esta encendido\n \n");		//Si es true, no hace nada
 			}
 			else{
-				System.out.println("\n \nEl radio se ha encendido\n \n");			//Si es false, utiliza onOff para cambiar el estado a encendido
+				System.out.println("\n \nEl radio se ha encendido\n ");			//Si es false, utiliza onOff para cambiar el estado a encendido
 				radio.onOff();
 			}
 			 break;
@@ -37,7 +39,7 @@ public class Controlador{
 
 
 			case 4:
-			System.out.println("\n \nEn que numero lo desea guardar?");		//Le pide el numero del usuario, y se manda a la funcion guardar
+			System.out.println("\n \nEn que boton lo desea guardar? (1-12)");		//Le pide el numero del usuario, y se manda a la funcion guardar
 			int num = scan.nextInt();
 			radio.guardar(num);
 			 break;
