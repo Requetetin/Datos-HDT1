@@ -1,4 +1,7 @@
-//Controlador.java
+/*
+Controlador.java
+Recibe los datos ingresados por el usuario y decide que hacer con ellos
+*/
 
 import java.util.*;
 

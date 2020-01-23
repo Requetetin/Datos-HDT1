@@ -1,4 +1,7 @@
-//miRadio.java
+/*
+miRadio.java
+Interfaz miRadio que define las funciones a utilizar
+*/
 
 public interface miRadio{
 	public String estacionActual();

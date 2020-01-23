@@ -1,4 +1,9 @@
-//Main.java
+/*
+Main.java
+Martin Amado - 19020
+Luis Pedro Garcia - 19344
+Programa main, envia datos recibidos al controlador
+*/
 
 import java.util.*;
 
